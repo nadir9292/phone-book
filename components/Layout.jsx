@@ -2,16 +2,18 @@ import Head from "next/head"
 import Button from "./Button"
 import Link from "next/link"
 
-const Layout = ({ children, props }) => {
+const Layout = (props) => {
+  const { title, children } = props
+
   return (
     <>
       <Head>
-        <title>Phone Book</title>
+        <title>{title}</title>
       </Head>
       <header>
-        <div className="flex justify-between">
+        <div className="flex justify-between bg-zinc-200">
           <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate flex items-center p-2 ">
-            {props}
+            {title}
           </h1>
           <div className="flex justify-end">
             <Link href="/" passHref>
@@ -22,7 +24,7 @@ const Layout = ({ children, props }) => {
               </a>
             </Link>
 
-            <Link href="/add-entry" passHref>
+            <Link href="/addEntry" passHref>
               <a>
                 <Button type="button" variant="primary" size="lg">
                   🆕 Add Entry
@@ -32,7 +34,7 @@ const Layout = ({ children, props }) => {
           </div>
         </div>
       </header>
-      {children}
+      <main>{children}</main>
     </>
   )
 }
