@@ -11,8 +11,9 @@ import {
   cityValidator,
   phoneNumberValidator,
 } from "../validators/validators"
-import { useCallback, useContext } from "react"
+import { useCallback, useContext, useState } from "react"
 import AppContext from "../components/AppContext"
+import Popup from "../components/popup"
 
 const initialValues = {
   activity: "",
@@ -48,6 +49,8 @@ const AddEntry = () => {
     [addEntry]
   )
 
+  const [buttonPopup, setButtonPopup] = useState(false)
+
   return (
     <div className="flex justify-center">
       <Formik
@@ -64,35 +67,25 @@ const AddEntry = () => {
             <FormField name="activity" type="text">
               Activity
             </FormField>
-            <FormField
-              name="nameContact"
-              placeholder="Enter a name !"
-              type="text"
-            >
+            <FormField name="nameContact" type="text">
               Name
             </FormField>
-            <FormField name="adress" placeholder="Enter a adress !" type="text">
+            <FormField name="adress" type="text">
               Adress
             </FormField>
-            <FormField
-              name="postalCode"
-              placeholder="Enter a postal code !"
-              type="number"
-            >
+            <FormField name="postalCode" type="number">
               Postal Code
             </FormField>
-            <FormField name="city" placeholder="Enter a city !" type="text">
+            <FormField name="city" type="text">
               City
             </FormField>
-            <FormField
-              name="number"
-              placeholder="Enter a phone number !"
-              type="number"
-            >
+            <FormField name="number" type="number">
               Phone number
             </FormField>
             <Button
+              onClick={() => setButtonPopup(true)}
               type="submit"
+              //find a way to disable the button from the beginning
               disabled={isSubmitting || !isValid}
               variant="btnValidation"
               size="lg"
@@ -102,6 +95,12 @@ const AddEntry = () => {
           </form>
         )}
       </Formik>
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+        <h1 className=" font-bold leading-7 text-gray-900 sm:text-xl sm:truncate flex items-center p-2">
+          GG, you just added a new contact in your phone book !
+        </h1>
+        <h3 className="text-xs">Sorry for this ugly popup 🤦‍♂️</h3>
+      </Popup>
     </div>
   )
 }

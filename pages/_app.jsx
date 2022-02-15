@@ -1,5 +1,6 @@
 import { AppContextProvider } from "../components/AppContext"
 import "../styles/globals.css"
+import "../styles/popup.css"
 
 const id = (x) => x
 
