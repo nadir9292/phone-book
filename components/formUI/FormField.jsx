@@ -2,11 +2,11 @@ import { Field } from "formik"
 import Input from "./Input"
 
 const FormField = (props) => {
-  const { children, className, helper: Helper, ...otherProps } = props
+  const { children, className, ...otherProps } = props
 
   return (
     <Field {...otherProps}>
-      {({ field, meta, meta: { touched, error } }) => (
+      {({ field, meta: { touched, error } }) => (
         <div className={className}>
           <label className="block font-bold">
             {children}
@@ -15,7 +15,6 @@ const FormField = (props) => {
           {touched && error ? (
             <p className="text-red-500 p-2 text-sm">{error}</p>
           ) : null}
-          {Helper ? <Helper field={field} meta={meta} /> : null}
         </div>
       )}
     </Field>

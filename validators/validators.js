@@ -14,7 +14,7 @@ export const nameContactValidator = yup
   .label("Name")
   .matches(/^[aA-zZ\s]+$/, "Only letter is allowed")
 
-export const adressValidator = yup.string().label("Adress")
+export const adressValidator = yup.string().min(3).max(50).label("Adress")
 
 export const postalCodeValidator = yup
   .string()

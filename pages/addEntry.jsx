@@ -1,5 +1,4 @@
 import { Formik } from "formik"
-import Link from "next/link"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import FormField from "../components/formUI/FormField"
@@ -17,7 +16,7 @@ import AppContext from "../components/AppContext"
 
 const initialValues = {
   activity: "",
-  name: "",
+  nameContact: "",
   adress: "",
   postalCode: "",
   city: "",
@@ -62,14 +61,14 @@ const AddEntry = () => {
             noValidate
             className="flex flex-col gap-4 p-4"
           >
-            <FormField
-              name="activity"
-              placeholder="Enter a activity !"
-              type="text"
-            >
+            <FormField name="activity" type="text">
               Activity
             </FormField>
-            <FormField name="name" placeholder="Enter a name !" type="text">
+            <FormField
+              name="nameContact"
+              placeholder="Enter a name !"
+              type="text"
+            >
               Name
             </FormField>
             <FormField name="adress" placeholder="Enter a adress !" type="text">
@@ -92,18 +91,14 @@ const AddEntry = () => {
             >
               Phone number
             </FormField>
-            <Link href="/" passHref>
-              <a>
-                <Button
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                  variant="btnValidation"
-                  size="lg"
-                >
-                  ADD NEW ENTRY
-                </Button>
-              </a>
-            </Link>
+            <Button
+              type="submit"
+              disabled={isSubmitting || !isValid}
+              variant="btnValidation"
+              size="lg"
+            >
+              ADD NEW ENTRY
+            </Button>
           </form>
         )}
       </Formik>
