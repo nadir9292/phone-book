@@ -13,7 +13,7 @@ const Table = (props) => {
             <Th>Activity</Th>
             <Th>Name</Th>
             <Th>Adress</Th>
-            <Th>Postal code</Th>
+            <Th>Postcode</Th>
             <Th>City</Th>
             <Th>Phone number</Th>
           </tr>
@@ -21,14 +21,14 @@ const Table = (props) => {
         <tbody className="bg-white divide-y divide-gray-200">
           {entries.map(
             (
-              { activity, nameContact, adress, postalCode, city, number },
+              { activity, nameContact, adress, postcode, city, number },
               index
             ) => (
               <tr key={index}>
                 <Td>{activity}</Td>
                 <Td>{nameContact}</Td>
                 <Td>{adress}</Td>
-                <Td>{postalCode}</Td>
+                <Td>{postcode}</Td>
                 <Td>{city}</Td>
                 <Td>{number}</Td>
               </tr>

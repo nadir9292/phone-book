@@ -7,7 +7,7 @@ import {
   activityValidator,
   nameContactValidator,
   adressValidator,
-  postalCodeValidator,
+  postcodeValidator,
   cityValidator,
   phoneNumberValidator,
 } from "../validators/validators"
@@ -19,7 +19,7 @@ const initialValues = {
   activity: "",
   nameContact: "",
   adress: "",
-  postalCode: "",
+  postcode: "",
   city: "",
   number: 0,
 }
@@ -30,7 +30,7 @@ const validationSchema = yup
     activity: activityValidator.required(),
     nameContact: nameContactValidator.required(),
     adress: adressValidator.required(),
-    postalCode: postalCodeValidator.required(),
+    postcode: postcodeValidator.required(),
     city: cityValidator.required(),
     number: phoneNumberValidator.required(),
   })
@@ -40,10 +40,10 @@ const AddEntry = () => {
   const { addEntry } = useContext(AppContext)
   const handleFormSubmit = useCallback(
     (
-      { activity, nameContact, adress, postalCode, city, number },
+      { activity, nameContact, adress, postcode, city, number },
       { resetForm }
     ) => {
-      addEntry({ activity, nameContact, adress, postalCode, city, number })
+      addEntry({ activity, nameContact, adress, postcode, city, number })
       resetForm()
     },
     [addEntry]
@@ -73,8 +73,8 @@ const AddEntry = () => {
             <FormField name="adress" type="text">
               Adress
             </FormField>
-            <FormField name="postalCode" type="number">
-              Postal Code
+            <FormField name="postcode" type="number">
+              Postcode
             </FormField>
             <FormField name="city" type="text">
               City

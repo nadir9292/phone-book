@@ -7,7 +7,7 @@ const initialState = {
       activity: faker.name.jobTitle(),
       nameContact: faker.name.firstName(),
       adress: faker.address.streetAddress(),
-      postalCode: faker.address.zipCode(),
+      postcode: faker.address.zipCode(),
       city: faker.address.city(),
       number: faker.phone.phoneNumber(),
     },
@@ -15,7 +15,7 @@ const initialState = {
       activity: faker.name.jobTitle(),
       nameContact: faker.name.firstName(),
       adress: faker.address.streetAddress(),
-      postalCode: faker.address.zipCode(),
+      postcode: faker.address.zipCode(),
       city: faker.address.city(),
       number: faker.phone.phoneNumber(),
     },
@@ -23,7 +23,7 @@ const initialState = {
       activity: faker.name.jobTitle(),
       nameContact: faker.name.firstName(),
       adress: faker.address.streetAddress(),
-      postalCode: faker.address.zipCode(),
+      postcode: faker.address.zipCode(),
       city: faker.address.city(),
       number: faker.phone.phoneNumber(),
     },
@@ -35,12 +35,12 @@ const AppContext = createContext({})
 export const AppContextProvider = (props) => {
   const [state, setState] = useState(initialState)
   const addEntry = useCallback(
-    ({ activity, nameContact, adress, postalCode, city, number }) => {
+    ({ activity, nameContact, adress, postcode, city, number }) => {
       setState((currentState) => ({
         ...currentState,
         entries: [
           ...currentState.entries,
-          { activity, nameContact, adress, postalCode, city, number },
+          { activity, nameContact, adress, postcode, city, number },
         ],
       }))
     },

@@ -16,7 +16,7 @@ export const nameContactValidator = yup
 
 export const adressValidator = yup.string().min(3).max(50).label("Adress")
 
-export const postalCodeValidator = yup
+export const postcodeValidator = yup
   .string()
   .min(5, "Must be equal to 5")
   .max(5, "Must be equal to 5")
